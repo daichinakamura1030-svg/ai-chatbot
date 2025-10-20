@@ -1,9 +1,7 @@
 {
   "name": "line-gpt-bot",
-  "type": "module",
   "private": true,
+  "type": "module",
   "engines": { "node": "22.x" },
-  "scripts": {
-    "start": "node api/webhook.mjs"
-  }
+  "scripts": {}
 }
