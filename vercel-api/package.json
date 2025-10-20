@@ -1,7 +1,9 @@
 {
-  "name": "ai-hojokin-sensei-api",
-  "private": true,
+  "name": "line-gpt-bot",
   "type": "module",
+  "private": true,
   "engines": { "node": "22.x" },
-  "scripts": { "dev": "vercel dev" }
+  "scripts": {
+    "start": "node api/webhook.mjs"
+  }
 }
