@@ -1,0 +1,7 @@
+{
+  "name": "ai-hojokin-sensei-api",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": { "dev": "vercel dev" }
+}
