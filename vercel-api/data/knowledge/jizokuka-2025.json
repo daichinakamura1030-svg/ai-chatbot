@@ -1,0 +1,83 @@
+{
+  "title": "小規模事業者持続化補助金＜一般型 通常枠＞ 第18回公募 公募要領",
+  "version": "第4版：2025年9月29日",
+  "publication_date": "2025年9月",
+  "secretariat": {
+    "shokokai_district": {
+      "name": "株式会社ニューズベース",
+      "contact": "地域の商工会",
+      "contact_hours": "9:00～12:00、13:00～17:00（土日祝日、年末年始除く）",
+      "search_site": "https://www12.shokokai.or.jp/hpsearch/top/php/shokokai_websearch.php"
+    },
+    "shokokaigisho_district": {
+      "name": "株式会社日本経営データ・センター",
+      "contact": "03-6634-9307",
+      "contact_hours": "9:00～12:00、13:00～17:00（土日祝日、年末年始除く）",
+      "search_site": "https://www.jcci.or.jp/ccisearch/?page=cciSearch"
+    }
+  },
+  "summary": {
+    "purpose": "小規模事業者等が複数年にわたり直面する制度変更等に対応するための販路開拓等の取組の経費の一部を補助することにより、地域の雇用や産業を支える小規模事業者等の生産性向上と持続的発展を図ること。",
+    "subsidy_limit": "50万円",
+    "special_limits_jp": "インボイス特例：50万円上乗せ、賃金引上げ特例：150万円上乗せ、両特例：200万円上乗せ",
+    "subsidy_rate": "2/3（賃金引上げ特例のうち赤字事業者は3/4）",
+    "target_expenses": [
+      "機械装置等費",
+      "広報費",
+      "ウェブサイト関連費",
+      "展示会等出展費（オンラインを含む）",
+      "旅費",
+      "新商品開発費",
+      "借料",
+      "委託・外注費"
+    ]
+  },
+  "schedule": {
+    "public_guidelines_date": "2025年6月30日（月）",
+    "application_start_date": "2025年10月3日（金）",
+    "application_deadline": "2025年11月28日（金）17:00",
+    "business_support_plan_deadline": "2025年11月18日（火）",
+    "selection_announcement_scheduled": "2026年3月頃予定",
+    "next_call_scheduled": "第19回：2026年5～6月頃を予定"
+  },
+  "application_requirements": {
+    "target_entities": "日本国内に所在する小規模事業者等（個人、法人、一定の要件を満たす特定非営利活動法人）",
+    "small_business_definition_employees": {
+      "commerce_service_excluding_accommodation_entertainment": "5人以下",
+      "accommodation_entertainment": "20人以下",
+      "manufacturing_other": "20人以下"
+    },
+    "capital_requirement": "資本金又は出資金が5億円以上の法人に直接又は間接に100％の株式を保有されていないこと（法人のみ）",
+    "taxable_income_limit": "直近過去3年分の課税所得の年平均額が15億円を超えていないこと"
+  },
+  "application_procedure": {
+    "method": "電子申請システムでのみ受付（郵送不可）",
+    "system_url": "https://www.jizokuka-portal.info/",
+    "required_id": "ＧビズＩＤプライムのアカウント取得が必須",
+    "required_support": "商工会・商工会議所の支援を受けながら取り組む事業であること（様式4の発行が必要）"
+  },
+  "special_rules": {
+    "invoice_special_case": {
+      "summary": "免税事業者が適格請求書発行事業者への転換に伴う事業環境変化に対応することに対し政策支援をするため、補助上限額を一律50万円上乗せ。",
+      "requirements": "補助事業の終了時点で「適格請求書発行事業者」の登録を受け、かつ、特定の期間に免税事業者であったか、特定の期間以降に創業した事業者。"
+    },
+    "wage_increase_special_case": {
+      "summary": "事業場内最低賃金を＋50円以上とした事業者に支援。赤字事業者は補助率が2/3から3/4へ引き上げ。",
+      "requirements": "補助事業の終了時点において、事業場内最低賃金が申請時の事業場内最低賃金より＋50円以上であること。"
+    }
+  },
+  "important_notes": [
+    "本補助金は審査があり、不採択になる場合や減額される場合がある。",
+    "補助事業遂行の際には自己負担が必要で、補助金は後払い。",
+    "虚偽の申請、目的外利用、不正な行為は不採択・交付決定取消、補助金返還（加算金付き）の対象となる。",
+    "申請には「ＧビズＩＤプライム」のアカウント取得が必須。",
+    "他社の支援を受けている場合、様式2にその相手方と金額の記載がない場合は不採択・交付決定取消となる。",
+    "ウェブサイト関連費のみによる申請は不可（上限は補助金交付申請額の1/4、最大50万円）。",
+    "単価50万円（税抜き）以上の機械装置等、ウェブサイト作成・更新、店舗改装等の一部は「処分制限財産」に該当し、処分が制限される。",
+    "交付決定日前の発注・契約・支出行為は補助対象外（展示会等の申込みは除く）。"
+  ],
+  "subsidy_implementation_period": {
+    "period": "交付決定日より2027年2月26日（金）まで",
+    "report_deadline": "2027年3月10日（水）"
+  }
+}
