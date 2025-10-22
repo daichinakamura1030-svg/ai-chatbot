@@ -11,11 +11,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "15.0.0",          // 最新安定版 (14でもOK)
+    "next": "15.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "typescript": "5.6.2"      // 型エラー防止用
+    "typescript": "5.6.2"
   }
 }
