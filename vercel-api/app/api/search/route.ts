@@ -2,8 +2,8 @@
 export const runtime = "nodejs";
 
 import { NextRequest, NextResponse } from "next/server";
-// ← ここを相対パスに（app/api/search から lib へは 3 つ戻る）
-import { searchKnowledge } from "../../../lib/knowledge";
+// 名前空間importにして、named export/ default export 両対応にする
+import * as Knowledge from "../../../lib/knowledge";
 import { gptAnswer } from "../../../lib/llm";
 
 export async function GET(req: NextRequest) {
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     const q = (searchParams.get("q") || "").trim();
     if (!q) return NextResponse.json({ error: "q is required" }, { status: 400 });
 
-    const hits = await searchKnowledge(q, 3);
+    const hits = await (Knowledge as any).searchKnowledge?.(q, 3) ?? [];
 
     if (!hits.length) {
       const answer = await gptAnswer(q);
