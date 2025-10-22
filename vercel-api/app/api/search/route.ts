@@ -3,8 +3,8 @@ export const runtime = "nodejs";
 import { NextRequest, NextResponse } from "next/server";
 
 // ★ ここを相対パスに
-import { searchKnowledge } from "../../../lib/knowledge";
-import { gptAnswer } from "../../../lib/llm";
+import { searchKnowledge } from "@/lib/knowledge";
+import { gptAnswer } from "@/lib/llm";
 
 export async function GET(req: NextRequest) {
   try {
