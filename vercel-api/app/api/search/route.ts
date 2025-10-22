@@ -4,9 +4,10 @@ import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { GRANTS_BY_BUTTON, detectGrantFromText, type GrantKey } from "../../../lib/grants";
 import { setUserScope, getUserScope, isDenied, denyUser } from "../../../lib/session";
-import { isAbusive } from "../../../lib/moderation";
+import { isAbusive, ABUSE_REPLY_MESSAGE } from "../../../lib/moderation";
 import { searchKnowledge } from "../../../lib/knowledge"; // Doc[] を返す版でOK
 import { gptAnswer, answerWithContext } from "../../../lib/llm";
+
 
 /** ========= LINE 設定 ========= */
 const CHANNEL_SECRET = process.env.LINE_CHANNEL_SECRET!;
@@ -69,14 +70,14 @@ export async function POST(req: NextRequest) {
     if (ev.type === "message" && ev.message?.type === "text") {
       const text: string = ev.message.text || "";
 
-      // 2-1) 暴言スパム → denylist →（必要なら1回だけ注意文）
-      if (isAbusive(text)) {
-        denyUser(userId);
-        await reply(replyToken, [
-          { type: "text", text: "不適切な表現が含まれていたため、以降の応対を停止します。" }
-        ]);
-        continue;
-      }
+    // 2-1) 暴言スパム → denylist登録して謝罪文を返す
+    if (isAbusive(text)) {
+      denyUser(userId);
+      await reply(replyToken, [
+        { type: "text", text: ABUSE_REPLY_MESSAGE }
+      ]);
+      continue;
+    }
 
       // 2-2) 現在スコープ（A〜F）
       const currentKey = getUserScope(userId) as GrantKey | null;
