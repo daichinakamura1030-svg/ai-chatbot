@@ -1,10 +1,10 @@
 // vercel-api/app/api/search/route.ts
 export const runtime = "nodejs";
-import { NextRequest, NextResponse } from "next/server";
 
-// ★ ここを相対パスに
-import { searchKnowledge } from "@/lib/knowledge";
-import { gptAnswer } from "@/lib/llm";
+import { NextRequest, NextResponse } from "next/server";
+// ← ここを相対パスに（app/api/search から lib へは 3 つ戻る）
+import { searchKnowledge } from "../../../lib/knowledge";
+import { gptAnswer } from "../../../lib/llm";
 
 export async function GET(req: NextRequest) {
   try {
