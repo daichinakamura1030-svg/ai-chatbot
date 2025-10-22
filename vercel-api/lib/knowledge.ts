@@ -13,7 +13,7 @@ export type Doc = {
   raw: any;           // 元JSON（必要なら）
 };
 
-const KNOWLEDGE_DIR = path.join(process.cwd(), "vercel-api", "data", "knowledge");
+const KNOWLEDGE_DIR = path.join(process.cwd(), "data", "knowledge");
 const INDEX_PATH = path.join(KNOWLEDGE_DIR, "index.json");
 
 // メモリキャッシュ（Vercelの関数はコールドスタート毎に初期化）
