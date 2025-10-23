@@ -15,6 +15,14 @@ const CHANNEL_TOKEN  = process.env.LINE_CHANNEL_ACCESS_TOKEN!;
 const LINE_API_REPLY = "https://api.line.me/v2/bot/message/reply";
 
 /** ========= ユーティリティ ========= */
+function toLinePlain(text: string) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, "$1") // **bold**
+    .replace(/^\s*[-•]\s*/gm, "・")  // 箇条書き
+    .replace(/`([^`]*)`/g, "$1")     // `code`
+    .replace(/\n{3,}/g, "\n\n");     // 改行整形
+}
+
 function signIsValid(rawBody: string, xLineSignature: string | null) {
   if (!CHANNEL_SECRET || !xLineSignature) return false;
   const hmac = crypto.createHmac("sha256", CHANNEL_SECRET);
@@ -80,13 +88,21 @@ export async function POST(req: NextRequest) {
         continue;
       }
 
+            // ★ ここを追加：スコープ検出＆保存、フォールバックで継続
+      let scope = getUserScope(userId) as GrantKey | null;
+      const newly = detectGrantFromText(text);
+      if (newly) {
+        setUserScope(userId, newly);
+        scope = newly;
+      }
+      
       // 2-2) 現在のスコープ（A〜F）
       const currentKey = getUserScope(userId) as GrantKey | null;
 
       // 2-3) F（その他） or スコープ無し → GPTのみ
       if (!currentKey || GRANTS_BY_BUTTON[currentKey]?.aiOnly) {
         const answer = await gptAnswer(text);
-        await reply(replyToken, [{ type: "text", text: answer }]);
+        await reply(replyToken, [{ type: "text", text: toLinePlain(answer) }]); // ← ここ
         continue;
       }
 
@@ -114,10 +130,12 @@ export async function POST(req: NextRequest) {
           where: d.source
         }));
         const answer = await answerWithContext(text, ctx);
-        await reply(replyToken, [{ type: "text", text: `${header}\n\n${answer}${mismatchNote}` }]);
+        const body = `${header}\n\n${answer}${mismatchNote}`;
+        await reply(replyToken, [{ type: "text", text: toLinePlain(body) }]);
       } else {
         const answer = await gptAnswer(text);
-        await reply(replyToken, [{ type: "text", text: `${header}\n\n${answer}${mismatchNote}` }]);
+        const body = `${header}\n\n${answer}${mismatchNote}`;
+        await reply(replyToken, [{ type: "text", text: toLinePlain(body) }]);
       }
     }
   }
