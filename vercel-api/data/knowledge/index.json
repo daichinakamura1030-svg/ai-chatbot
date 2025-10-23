@@ -1,9 +1,10 @@
 {
   "files": [
     "jizokuka-2025.json",
+    "it-dounyu-2025.json",
     "monozukuri-2025.json",
-    "seichou_kasokuka-2025.json",
-    "shinjigyo-2025.json"
+    "shinjigyo-2025.json",
+    "seichou_kasokuka-2025.json"
   ],
-  "last_updated": "2025-10-22"
+  "last_updated": "2025-10-23"
 }
