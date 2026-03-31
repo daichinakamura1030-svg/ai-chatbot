@@ -9,12 +9,9 @@ export async function middleware(request: NextRequest) {
     return new Response("pong", { status: 200 });
   }
 
-  if (pathname.startsWith("/api/auth")) {
-    return NextResponse.next();
-  }
-
-  // ここを追加
-  if (pathname.startsWith("/api/line/")) {
+  // API は middleware の認証対象から外す
+  // 認可は各 route.ts 側で行う
+  if (pathname.startsWith("/api/")) {
     return NextResponse.next();
   }
 
@@ -45,9 +42,8 @@ export const config = {
   matcher: [
     "/",
     "/chat/:id",
-    "/api/:path*",
     "/login",
     "/register",
-    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
   ],
 };
