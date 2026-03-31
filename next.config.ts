@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
-    appDir: true,   // ✅ ← これがないと app/api/* が動かない
     ppr: true,
   },
   images: {
